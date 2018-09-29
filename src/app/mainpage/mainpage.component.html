@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row rowp">
+    <h1 class="mx-auto">todos</h1>
+  </div>
+  <div class="row">
+    <div class="back mx-auto shadow p-3 mb-5 bg-white rounded">
+      <div class="input-group mb-3 inbox">
+        <input [(ngModel)]="inputtitle" (keyup.enter)="createnew()" type="text" style="height:60px !important" class="form-control"
+          placeholder="New list to add...." aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="input-group-append">
+          <button (click)="createnew()" class="btn btn-outline-secondary pressadd" type="button" id="button-addon2"><i
+              class="fa fa-pencil-square-o" style="font-size:26px;opacity: 0.5;"></i></button>
+        </div>
+      </div>
+      <div class="todos">
+        <div class="row border-bottom " id="elem" *ngFor='let list of lists ; index as i'>
+       <app-item [list]='list'
+                  [i]='i'
+                  [count] ='count'
+                  [name] = 'name'
+                  [flag] = 'flag'
+                  (statusChange)="status(list.title,list.status,list.todo_id,i)"
+                  (nameChanege)='changename(list.title,i,list.todo_id,list.status)'
+                  (item)= 'item(i)'></app-item>
+                  <a href='#'
+  (click)="deleteitem(list.todo_id,i,list.status)"
+  class="cross">
+  <i class='material-icons'>clear</i>
+</a>
+
+        </div>
+      </div>
+      <small>items left : <span class="num">{{ count }} </span></small>
+      <span style="float: right"><button (click)='downbuttons(null)' type="button" class="btn btn-light entire">all</button>
+        <button (click)="downbuttons(0)" type="button" class="btn btn-light act">active</button>
+        <button (click)='downbuttons(1)' type="button" class="btn btn-light completed">completed</button>
+        <button (click)="clear(1)" type="button" class="btn btn-light clearc">clear completed</button>
+      </span>
+    </div>
+  </div>
+</div>

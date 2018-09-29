@@ -9,7 +9,7 @@
 a{
   text-decoration: none !important;
   color:#949494 !important;
-  opacity: 0;
+  opacity: 1;
 }
 a:hover{
   color: #3f3f40 !important;
@@ -49,9 +49,7 @@ h1{
   padding:5px !important;
 }
 
-#elem:hover a{
-  opacity:1 !important;
-}
+
 .cross{
   position: absolute;
   right:440px;

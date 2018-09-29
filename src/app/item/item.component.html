@@ -1,0 +1,20 @@
+<input
+  (click)="changeStatus()"
+  class="tick"
+  type="checkbox"
+  [checked]='list.status'>
+
+<span (click)='inputfield()'
+  *ngIf='!list.flag'
+  id=change
+  [class.strike]='list.status'
+  [class.unstrike]='!list.status'>
+  {{list.title }}
+</span>
+
+  <input appAutofocus type="text"
+    (keyup.enter)='changeName()'
+    (focusout)='changeName()'
+    [(ngModel)]='list.title'
+    *ngIf='list.flag'>
+
